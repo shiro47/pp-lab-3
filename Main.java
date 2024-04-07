@@ -1,20 +1,23 @@
 import geometry.Point;
 import geometry.Circle;
 import geometry.ColoredCircle;
-import geometry.ColoredCircle;
 
 public class Main {
     public static void main(String[] args) {
-        Point point = new Point(3.5, 2.0);
-        System.out.println("Point coordinates: (" + point.getX() + ", " + point.getY() + ")");
-
-        Circle circle = new Circle(point, 5.0);
-        System.out.println("Center of the circle: (" + circle.getCenter().getX() + ", " + circle.getCenter().getY() + ")");
-        System.out.println("Radius of the circle: " + circle.getRadius());
-        System.out.println("Perimeter of the circle: " + circle.calculatePerimeter());
-        System.out.println("Area of the circle: " + circle.getArea());
-
-        ColoredCircle coloredCircle = new ColoredCircle(point, 3.0, "red");
-        System.out.println("Color of the circle: " + coloredCircle.getColor());
+        Circle[] circles = new Circle[3];
+        circles[0] = new Circle(new Point(0, 0), 2.0);
+        circles[1] = new Circle(new Point(1, 1), 3.0);
+        circles[2] = new ColoredCircle(new Point(2, 2), 4.0, "blue");
+        
+        for (Circle circle : circles) {
+            double area = circle.getArea();
+            System.out.println("Area of the circle: " + area);
+            
+            if (circle instanceof ColoredCircle) {
+                ColoredCircle coloredCircle = (ColoredCircle) circle;
+                String color = coloredCircle.getColor();
+                System.out.println("Color of the circle: " + color);
+            }
+        }
     }
 }
