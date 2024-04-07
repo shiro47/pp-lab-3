@@ -1,5 +1,7 @@
 import geometry.Point;
 import geometry.Circle;
+import geometry.ColoredCircle;
+import geometry.ColoredCircle;
 
 public class Main {
     public static void main(String[] args) {
@@ -11,5 +13,8 @@ public class Main {
         System.out.println("Radius of the circle: " + circle.getRadius());
         System.out.println("Perimeter of the circle: " + circle.calculatePerimeter());
         System.out.println("Area of the circle: " + circle.getArea());
+
+        ColoredCircle coloredCircle = new ColoredCircle(point, 3.0, "red");
+        System.out.println("Color of the circle: " + coloredCircle.getColor());
     }
 }
